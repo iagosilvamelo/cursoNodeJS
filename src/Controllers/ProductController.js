@@ -2,8 +2,15 @@ const mongoose = require('mongoose');
 const Product  = mongoose.model('Product');
 
 module.exports = {
-	async index(req, res) {
+	async all(req, res) {
 		const products = await Product.find();
+		return res.json(products);
+	},
+
+	async index(req, res) {
+		const { page = 1 } = req.query;
+
+		const products = await Product.paginate({}, { page, limit: 10 });
 		return res.json(products);
 	},
 

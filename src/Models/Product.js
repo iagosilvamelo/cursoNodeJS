@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const paginate = require('mongoose-paginate');
 
 const ProductSchema = new mongoose.Schema({
 	title: {
@@ -22,4 +23,5 @@ const ProductSchema = new mongoose.Schema({
 	},
 });
 
+mongoose.plugin(paginate);
 mongoose.model('Product', ProductSchema);
