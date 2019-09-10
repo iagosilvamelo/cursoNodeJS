@@ -6,6 +6,7 @@ const app = express();
 
 // Iniciando o DB
 mongoose.connect('mongodb://localhost:27017/nodeapi', { useUnifiedTopology: true, useNewUrlParser: true });
+require('./src/Models/Products');
 
 // Router
 app.get('/', (req, res) => {
