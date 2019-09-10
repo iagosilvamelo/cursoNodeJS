@@ -16,7 +16,7 @@ const ProductSchema = new mongoose.Schema({
 		required: true,
 	},
 
-	url: {
+	created_at: {
 		type: Date,
 		default: Date.now,
 	},

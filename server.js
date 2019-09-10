@@ -6,13 +6,15 @@ const requireDir = require('require-dir')
 const app = express();
 
 // Iniciando o DB
-mongoose.connect('mongodb://localhost:27017/nodeapi', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(
+	'mongodb://localhost:27017/nodeapi', 
+	{ 
+		useUnifiedTopology: true, 
+		useNewUrlParser: true 
+	}
+);
 requireDir('./src/Models');
 
-// Router
-app.get('/', (req, res) => {
-	res.send('Helo Iago');
-});
 
-// Porta para acesso do app
+app.use('/api', require('./src/routes'));
 app.listen(3001);
